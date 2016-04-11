@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:id="@+id/authorNameId"
+        android:text="Grant English"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/reviewContentId"
+        android:layout_gravity="center"
+        android:textColor="#9D9D9D"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="The Winter Soldier has all the action, quirky one-liners, and bold adventure that we have come to expect of a Marvel movie. Plus we get introduced to a new/old villain as well as some fun romantic tension between Steve Rogers (Captain America) and Natasha Romanoff (The Black Widow). (Scarlett Johansson is perfect in this role.) But this film also has some minor irritations all stemming from Marvel's tendency to make _Captain America_ more complicated than it really needs to be. MINOR SPOILER ALERT: 1. The love story/non-story. Is this necessary? Will the Captain remain faithful to a 80 year-old woman on her deathbed OR engage in a date with his next door neighbor? Plus the tension between him and Natasha Romanoff is intense. This comes off as forced, awkward, and pointless. 2. “The deception goes deeper than you can imagine. You can’t trust anybody.” It's this way every time so it should no longer be a surprise. 3. He’s dead but not really. Not him, the other him. Well…they both were dead – not really – but now they are both alive. But one of them can’t remember who he really is. In this film we get to do this with two characters instead of one. It’s not a huge distraction but why does Marvel keep returning to this plot line? END OF MINOR SPOILER ALERT The Winter Soldier is best when Rogers and Romanoff are on the move trying to put the pieces of the puzzle together. The explosions are nice, the action scenes are intense but the real enjoyment of the film is where skill and wits are relied on more than gadgets and explosions. Patriotism is a bit more nuanced this time around and it's better for it. The cast is great, no awkward acting moments to report. It’s a great summer flick with all the action you want."/>
+
+</LinearLayout>
