@@ -63,7 +63,9 @@ public class DetailsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        setRetainInstance(true);
         View   view = inflater.inflate(R.layout.activity_details, container, false);
+
 
         ((AppCompatActivity)getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -142,6 +144,7 @@ public class DetailsFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+
     }
 
     @Override
@@ -160,7 +163,7 @@ public class DetailsFragment extends Fragment {
         if(id==android.R.id.home)
         {
             MainFragment mainFragment = new MainFragment();
-            if (conf.smallestScreenWidthDp >= 600) {
+            if (conf.smallestScreenWidthDp >= 720) {
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.Maincontainer, mainFragment).commit();
 
             }else{

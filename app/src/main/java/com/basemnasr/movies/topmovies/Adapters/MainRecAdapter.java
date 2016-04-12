@@ -24,7 +24,7 @@ import java.util.List;
 public class MainRecAdapter extends RecyclerView.Adapter<MainRecAdapter.ViewHolder>  {
 
     int pos;
-    public static Context con;
+     public static Context con;
     public static      List<MoviesModel> movieList;
     public  static Configuration conf;
   public static   int supplyToken;
@@ -32,12 +32,11 @@ public class MainRecAdapter extends RecyclerView.Adapter<MainRecAdapter.ViewHold
     public MainRecAdapter(List<MoviesModel> models,Context context) {
 
         movieList = models;
-        con = context;
-         conf = context.getResources().getConfiguration();
+        if (context!=null){
+            con = context;
+            conf = context.getResources().getConfiguration();
+        }
         supplyToken = 1;
-
-
-
 
     }
 
@@ -67,7 +66,7 @@ public class MainRecAdapter extends RecyclerView.Adapter<MainRecAdapter.ViewHold
 
        
 
-                if (conf.smallestScreenWidthDp >= 600) {
+                if (conf.smallestScreenWidthDp >= 720) {
 
                     Bundle bundle = new Bundle();
                     bundle.putString("PosterPath", moviesModel.getPosterPath());
@@ -112,15 +111,13 @@ public class MainRecAdapter extends RecyclerView.Adapter<MainRecAdapter.ViewHold
 
         public ImageView PosterMovie;
 
-
-
         public ViewHolder(final View itemLayoutView) {
             super(itemLayoutView);
             PosterMovie = (ImageView) itemLayoutView.findViewById(R.id.posterId);
 
 
             final MoviesModel moviesModel = movieList.get(0);
-            if (conf.smallestScreenWidthDp >= 600&& supplyToken!=-1) {
+            if (conf.smallestScreenWidthDp >= 720&& supplyToken!=-1) {
 
                 Bundle bundle = new Bundle();
                 bundle.putString("PosterPath", moviesModel.getPosterPath());
@@ -131,7 +128,7 @@ public class MainRecAdapter extends RecyclerView.Adapter<MainRecAdapter.ViewHold
                 bundle.putInt("movieid", moviesModel.getMovieId());
                 DetailsFragment detailsFragment = new DetailsFragment();
                 detailsFragment.setArguments(bundle);
-                ((FragmentActivity) con).getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.Detailscontainer, detailsFragment).commit();
+                ((FragmentActivity)itemLayoutView.getContext() ).getSupportFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.Detailscontainer, detailsFragment).commit();
                 supplyToken = -1;
             }
 

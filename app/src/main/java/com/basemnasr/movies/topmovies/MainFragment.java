@@ -41,23 +41,25 @@ public class MainFragment extends Fragment {
     String url;
     TextView FailedConTV;
     List<MoviesModel> movies;
-    String popurl, voturl;
+  public  String popurl, voturl;
     Configuration conf;
 
     View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        setRetainInstance(true);
         view = inflater.inflate(R.layout.fragment_main, container, false);
         setHasOptionsMenu(true);
+
 
         ((AppCompatActivity)getActivity()).getSupportActionBar().setHomeButtonEnabled(false);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         FailedConTV = (TextView) view.findViewById(R.id.failedconId);
 
-        popurl = "http://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=13d6d170dceb2e3e7c202d479192976d";
-        voturl = "http://api.themoviedb.org/3/discover/movie?sort_by=vote_average.desc&api_key=13d6d170dceb2e3e7c202d479192976d";
+        popurl = "http://api.themoviedb.org/3/movie/popular?sort_by=popularity.desc&api_key=13d6d170dceb2e3e7c202d479192976d";
+        voturl = "http://api.themoviedb.org/3/movie/top_rated?sort_by=vote_average.desc&api_key=13d6d170dceb2e3e7c202d479192976d";
 
          conf = view.getResources().getConfiguration();
 
@@ -68,7 +70,9 @@ public class MainFragment extends Fragment {
         }
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
-        refresh(popurl);
+        if(savedInstanceState == null){
+            refresh(popurl);
+        }
 
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_products);
         swipeRefreshLayout.setColorSchemeColors(R.color.colorPrimary, R.color.colorPrimaryDark);
@@ -182,7 +186,7 @@ public class MainFragment extends Fragment {
 
 
             FavouritsFragment favouritsFragment = new FavouritsFragment();
-            if (conf.smallestScreenWidthDp >= 600) {
+            if (conf.smallestScreenWidthDp >= 720) {
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.Maincontainer, favouritsFragment).commit();
             }else {
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, favouritsFragment).commit();

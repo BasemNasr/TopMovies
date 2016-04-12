@@ -36,13 +36,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         toolbar = (Toolbar) findViewById(R.id.app_bar1);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Pop Movies");
 
 
         Configuration conf = getResources().getConfiguration();
-        if (conf.smallestScreenWidthDp >= 600) {
+        if (conf.smallestScreenWidthDp >= 720) {
 
             Fragment fragment = new MainFragment();
             FragmentManager fragmentManager = getSupportFragmentManager();

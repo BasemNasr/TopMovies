@@ -1,6 +1,5 @@
 package com.basemnasr.movies.topmovies;
 
-import android.app.ProgressDialog;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,7 +13,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.basemnasr.movies.topmovies.Adapters.MainRecAdapter;
 import com.basemnasr.movies.topmovies.LocalDatabase.LocalDatabaseAdapter;
@@ -27,18 +25,16 @@ public class FavouritsFragment extends Fragment {
     RecyclerView recyclerView;
     SwipeRefreshLayout swipeRefreshLayout;
     MainRecAdapter adapter;
-    ProgressDialog mDialog;
-    String url;
-    TextView FailedConTV;
     LocalDatabaseAdapter localDatabaseAdapter;
-    String popurl, voturl;
     Configuration conf;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-       View view = inflater.inflate(R.layout.fragment_main, container, false);
+        setRetainInstance(true);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
         setHasOptionsMenu(true);
+
 
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Favorits Movies");
         conf = view.getResources().getConfiguration();
@@ -50,7 +46,7 @@ public class FavouritsFragment extends Fragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.rv);
         GridLayoutManager layoutManager = new GridLayoutManager(view.getContext(), 2);
-        if (conf.smallestScreenWidthDp >= 600) {
+        if (conf.smallestScreenWidthDp >= 720) {
             layoutManager = new GridLayoutManager(view.getContext(), 3);
         }
         recyclerView.setHasFixedSize(true);
@@ -79,6 +75,7 @@ public class FavouritsFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        setRetainInstance(true);
 
 
     }
